@@ -1,0 +1,33 @@
+[submodule "vim/bundle/javascript"]
+	path = vim/bundle/javascript
+	url = https://github.com/vim-scripts/javascript.vim--welshare.git
+[submodule "vim/bundle/jquery"]
+	path = vim/bundle/jquery
+	url = https://github.com/vim-scripts/jQuery.git
+[submodule "vim/bundle/jsl"]
+	path = vim/bundle/jsl
+	url = https://github.com/vim-scripts/compilerjsl.vim.git
+[submodule "vim/bundle/json"]
+	path = vim/bundle/json
+	url = https://github.com/vim-scripts/JSON.vim.git
+[submodule "vim/bundle/markdown"]
+	path = vim/bundle/markdown
+	url = https://github.com/vim-scripts/Markdown.git
+[submodule "vim/bundle/nerdcommenter"]
+	path = vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/bundle/pyflakes"]
+	path = vim/bundle/pyflakes
+	url = https://github.com/kevinw/pyflakes-vim.git
+[submodule "vim/bundle/solarized"]
+	path = vim/bundle/solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/bundle/vim-jade"]
+	path = vim/bundle/vim-jade
+	url = https://github.com/digitaltoad/vim-jade.git
+[submodule "vim/bundle/vim-less"]
+	path = vim/bundle/vim-less
+	url = https://github.com/groenewege/vim-less
+[submodule "vim/bundle/zenburn"]
+	path = vim/bundle/zenburn
+	url = https://github.com/vim-scripts/Zenburn.git
