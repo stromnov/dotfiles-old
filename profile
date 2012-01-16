@@ -86,7 +86,6 @@ fi
 
 # Use colorized command prompt
 if [ ${BASH_VERSION} ]; then
-    echo "BASH_VERSION = ${BASH_VERSION}"
     export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
 elif [ ${ZSH_VERSION} ]; then
     echo "No command prompt hiliting for now."
