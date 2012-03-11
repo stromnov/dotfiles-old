@@ -5,6 +5,7 @@
 " Pathogen
 filetype off
 call pathogen#infect()
+syntax on
 "call pathogen#helptags()
 "call pathogen#runtime_append_all_bundles()
 
