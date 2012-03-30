@@ -53,6 +53,18 @@ case ${PLATFORM} in
         ;;
 esac
 
+# Add /usr/local/bin
+echo ${PATH} | grep -q -s "/usr/local/bin"
+if [ $? -eq 1 ] ; then
+    if [ -d "/usr/local/bin" ] ; then
+        export PATH="${PATH}:/usr/local/bin"
+    fi
+fi
+
+if [ -d ${HOME}/node_modules/.bin ]; then
+    export PATH="${PATH}:${HOME}/node_modules/.bin"
+fi
+
 # Local bin
 if [ -d ${HOME}/bin ]; then
     export PATH="${HOME}/bin:${PATH}"
@@ -67,17 +79,6 @@ if [ -d ${HOME}/opt ]; then
     export PYTHONPATH="${HOME}/opt/lib/python2.7/site-packages:${PYTHONPATH}"
 fi
 
-# Add /usr/local/bin
-echo ${PATH} | grep -q -s "/usr/local/bin"
-if [ $? -eq 1 ] ; then
-    if [ -d "/usr/local/bin" ] ; then
-        export PATH="${PATH}:/usr/local/bin"
-    fi
-fi
-
-if [ -d ${HOME}/node_modules/.bin ]; then
-    export PATH="${PATH}:${HOME}/node_modules/.bin"
-fi
 
 # Python completion and others
 if [ -f ~/.pythonstartup ] ; then
