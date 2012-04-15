@@ -25,6 +25,12 @@ case ${PLATFORM} in
         # Prefer 32 bit python
         export VERSIONER_PYTHON_PREFER_32_BIT=yes
 
+        # XCode 4.3+
+        #export XCODEAPP=/Applications/Xcode.app
+        #if [ -d ${XCODEAPP} ]; then
+        #    export PATH=${XCODEAPP}/Contents/Developer/usr/bin:${XCODEAPP}/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:$PATH
+        #fi
+
         # MacPorts settings
         export MPROOT=/opt/local
         if [ -d ${MPROOT} ]; then
