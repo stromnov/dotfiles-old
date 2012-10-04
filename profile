@@ -56,6 +56,12 @@ case ${PLATFORM} in
             #fi
         fi
 
+        # Add Sublime Text 2, if exists
+        SUBLIME_TEXT_2="/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl"
+        if [ -x "${SUBLIME_TEXT_2}" ]; then
+            alias subl="'${SUBLIME_TEXT_2}'"
+        fi
+
         ;;
 esac
 
