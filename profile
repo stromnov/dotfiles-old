@@ -43,17 +43,17 @@ case ${PLATFORM} in
             fi
 
             # PostgreSQL 9.0 settings
-            if [ -d ${MPROOT}/lib/postgresql90/bin ]; then
-                export PATH="${MPROOT}/lib/postgresql90/bin:${PATH}"
-            fi
+            #if [ -d ${MPROOT}/lib/postgresql90/bin ]; then
+            #    export PATH="${MPROOT}/lib/postgresql90/bin:${PATH}"
+            #fi
 
             # Oracle client
-            if [ -d ${MPROOT}/lib/oracle ]; then
-                export ORACLE_HOME=${MPROOT}/lib/oracle
-                export TNS_ADMIN=${ORACLE_HOME}/network/admin
-                export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${ORACLE_HOME}
-                export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${ORACLE_HOME}
-            fi
+            #if [ -d ${MPROOT}/lib/oracle ]; then
+            #    export ORACLE_HOME=${MPROOT}/lib/oracle
+            #    export TNS_ADMIN=${ORACLE_HOME}/network/admin
+            #    export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${ORACLE_HOME}
+            #    export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${ORACLE_HOME}
+            #fi
         fi
 
         ;;
@@ -110,7 +110,9 @@ export GREP_OPTIONS="--color=auto"
 export GREP_COLOR='1;32'
 
 # TODO
-export LESSOPEN='| /opt/local/bin/lesspipe.sh %s'
+if [ -f /opt/local/bin/lesspipe.sh ]; then
+    export LESSOPEN='| /opt/local/bin/lesspipe.sh %s'
+fi
 
 # Aliases
 alias ls="ls -FG"
@@ -123,8 +125,11 @@ if [ ${BASH_VERSION} ]; then
     if [ -f /opt/local/etc/bash_completion ]; then
         . /opt/local/etc/bash_completion
     fi
+    if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+        . /opt/local/etc/profile.d/bash_completion.sh
+    fi
 fi
 
 #. <(npm completion)
 
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+#[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
