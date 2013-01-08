@@ -1,0 +1,14 @@
+# Enable Dotfiles
+
+DOTFILESDIRS="${HOME}/Dotfiles ${HOME}/.dotfiles";
+for dotfilesdir in ${DOTFILESDIRS}; do
+    if [ -d ${dotfilesdir} ]; then
+        export DOTFILES=${dotfilesdir};
+        break;
+    fi
+done
+
+if [ -n ${DOTFILES} -a -f ${DOTFILES}/profile ]; then
+    . ${DOTFILES}/profile
+fi
+
