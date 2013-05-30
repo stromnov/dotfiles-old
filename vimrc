@@ -88,3 +88,6 @@ set splitbelow
 
 " Python specific
 let python_highlight_all=1
+
+" MacPorts specific
+let g:portfile_highlight_space_errors=1
