@@ -14,7 +14,7 @@ compinit
 # End of lines added by compinstall
 
 # oh-my-zsh configuration
-export ZSH=$HOME/Dotfiles/.oh-my-zsh
+export ZSH=$HOME/.dotfiles/.oh-my-zsh
 ZSH_THEME=""
 
 alias pygmentize='pygmentize-2.7'
@@ -25,10 +25,10 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
 URLTOOLS_METHOD="node"
-plugins=(colorize encode64 fabric git history history-substring-search macports osx pip python sublime urltools)
+plugins=(colorize encode64 fabric git history history-substring-search osx pip python sublime urltools)
 source $ZSH/oh-my-zsh.sh
 
 # Activate Dotfiles
-if [ -f ${HOME}/Dotfiles/activate ]; then
-    . ${HOME}/Dotfiles/activate
+if [ -f ${HOME}/.dotfiles/activate ]; then
+    . ${HOME}/.dotfiles/activate
 fi

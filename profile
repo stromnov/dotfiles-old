@@ -1,4 +1,4 @@
 # Activate Dotfiles
-if [ -f ${HOME}/Dotfiles/activate ]; then
-    . ${HOME}/Dotfiles/activate
+if [ -f ${HOME}/.dotfiles/activate ]; then
+    . ${HOME}/.dotfiles/activate
 fi
