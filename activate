@@ -1,6 +1,6 @@
 # Enable Dotfiles
 if [ -z "${DOTFILES}" ]; then
-    for dotfilesdir in ${HOME}/Dotfiles ${HOME}/dotfiles ${HOME}/.Dotfiles ${HOME}/.dotfiles; do
+    for dotfilesdir in ${HOME}/.dotfiles ${HOME}/Dotfiles ${HOME}/dotfiles ${HOME}/.Dotfiles; do
         if [ -d ${dotfilesdir} ]; then
             export DOTFILES=${dotfilesdir};
             break;
@@ -56,7 +56,7 @@ case ${PLATFORM} in
         fi
 
         # Add Sublime Text, if exists
-        SUBLIME_TEXT="/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"
+        SUBLIME_TEXT="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
         if [ -x "${SUBLIME_TEXT}" ]; then
             alias subl="'${SUBLIME_TEXT}'"
         fi
