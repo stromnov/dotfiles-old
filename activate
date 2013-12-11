@@ -48,17 +48,17 @@ case ${PLATFORM} in
                 export PATH="${MPROOT}/libexec/ccache:${PATH}"
             fi
 
-            # PostgreSQL 9.0 settings
-            #if [ -d ${MPROOT}/lib/postgresql90/bin ]; then
-            #    export PATH="${MPROOT}/lib/postgresql90/bin:${PATH}"
+            # PostgreSQL 9.3 settings
+            #if [ -d ${MPROOT}/lib/postgresql93/bin ]; then
+            #    export PATH="${MPROOT}/lib/postgresql93/bin:${PATH}"
             #fi
 
         fi
 
-        # Add Sublime Text 2, if exists
-        SUBLIME_TEXT_2="/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl"
-        if [ -x "${SUBLIME_TEXT_2}" ]; then
-            alias subl="'${SUBLIME_TEXT_2}'"
+        # Add Sublime Text, if exists
+        SUBLIME_TEXT="/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"
+        if [ -x "${SUBLIME_TEXT}" ]; then
+            alias subl="'${SUBLIME_TEXT}'"
         fi
 
         ;;
