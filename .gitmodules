@@ -28,9 +28,6 @@
 [submodule "vim/bundle/vim-less"]
 	path = vim/bundle/vim-less
 	url = https://github.com/groenewege/vim-less
-[submodule "vim/bundle/zenburn"]
-	path = vim/bundle/zenburn
-	url = https://github.com/vim-scripts/Zenburn.git
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
