@@ -2,21 +2,14 @@
 " VIM configuration
 "
 
-" Pathogen
-filetype off
-call pathogen#infect()
-syntax on
-"call pathogen#helptags()
-"call pathogen#runtime_append_all_bundles()
+" Enable Pathogen
+execute pathogen#infect()
 
+" Generic VIM setup
 autocmd!
-
 set nocompatible
 
-" Setup .viminfo
-set viminfo='100,%,/50,:50,<50,h
-
-" Set color scheme
+" Setup VIM colorscheme
 if has('gui_running')
     set background=light
 else
@@ -26,11 +19,11 @@ colorscheme solarized
 let g:solarized_termcolors=256
 let g:solarized_visibility="high"
 
-" Enable colorscheme toggling
-call togglebg#map("<F5>")
-
-" Position history
+" Setup position history
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+
+" Setup .viminfo
+set viminfo='100,%,/50,:50,<50,h
 
 " Setup buffers
 set autowriteall
@@ -43,18 +36,15 @@ filetype plugin on
 " Navigation
 set number              " line numbers
 set nowrap              " no line break
-"set whichwrap+=<,>,[,]  " wrapping
+"set whichwrap+=<,>,[,] " wrapping
 set scrolloff=3         "
 set sidescrolloff=5     "
 
 " Search
 set nohlsearch
 set incsearch
-"set ignorecase
-"set smartcase
-"set grepprg=/opt/local/bin/egrep\ --exclude-dir='.svn'\ -I\ -n\ $*\ /dev/null
 
-" Edit 
+" Edit
 set autoindent
 set linebreak
 set softtabstop=4
