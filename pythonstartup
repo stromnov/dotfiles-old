@@ -1,19 +1,61 @@
-import readline
-import rlcompleter
-import atexit
-import os
+# -*- coding: utf-8 -*-
 
-# tab completion
-readline.parse_and_bind('tab: complete')
-
-# history file
-histfile = os.path.join(os.environ['HOME'], '.pythonhistory')
+# Pulled these two examples together for the following code
+#   http://docs.python.org/2/library/rlcompleter.html#module-rlcompleter
+#   http://geoffford.wordpress.com/2009/01/20/python-repl-enhancement/
+#   http://github.com/jbisbee/python-shell-enhancement/
 
 try:
-    readline.read_history_file(histfile)
-except IOError:
-    pass
+    ## Already Running IPython shell, do nothing
+    __IPYTHON__
+except NameError:
+    import os
+    try:
+        ## Running Python shell, but IPython available
+        import IPython
 
-atexit.register(readline.write_history_file, histfile)
+        # Prevent running this again
+        os.environ['PYTHONSTARTUP'] = ''  # Prevent running this again
 
-del os, histfile, readline, rlcompleter
+        # Cleanup namespace
+        del os
+
+        # Start IPython console
+        IPython.start_ipython()
+
+        # Gracefully exit
+        raise SystemExit
+    except ImportError:
+        ## Running Python shell, no IPython detected
+        try:
+            import os
+            import sys
+            import platform
+            import readline
+            import rlcompleter
+            import atexit
+        except ImportError as exception:
+            print('Shell Enhancement module problem: {0}').format(exception)
+        else:
+            ## Enable shell enhancements
+
+            # Tab completion
+            if sys.platform == 'darwin' and 'libedit' in readline.__doc__:
+                readline.parse_and_bind('bind ^I rl_complete')
+            else:
+                readline.parse_and_bind('tab: complete')
+
+            # History file
+            histfile = os.environ.get('PYTHON_HISTORY_FILE')
+            if not histfile:
+                histfile = os.path.join(os.environ['HOME'], '.pythonhistory')
+
+            try:
+                readline.read_history_file(histfile)
+            except IOError:
+                pass
+
+            atexit.register(readline.write_history_file, histfile)
+
+            # Cleanup namespace
+            del os, sys, platform, readline, rlcompleter, atexit, histfile
