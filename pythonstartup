@@ -27,18 +27,17 @@ except NameError:
         raise SystemExit
     except ImportError:
         ## Running Python shell, no IPython detected
+        import os
+        import sys
+        import platform
+        import atexit
         try:
-            import os
-            import sys
-            import platform
             import readline
             import rlcompleter
-            import atexit
-        except ImportError as exception:
-            print('Shell Enhancement module problem: {0}').format(exception)
+        except ImportError:
+            exception = sys.exc_info()[1]
+            print('Shell Enhancement module problem: %s' % exception)
         else:
-            ## Enable shell enhancements
-
             # Tab completion
             if sys.platform == 'darwin' and 'libedit' in readline.__doc__:
                 readline.parse_and_bind('bind ^I rl_complete')
